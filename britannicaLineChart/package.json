@@ -1,0 +1,22 @@
+{
+  "name": "visual",
+  "version": "1.2.1",
+  "scripts": {
+    "postinstall": "pbiviz update 1.9.0",
+    "pbiviz": "pbiviz",
+    "start": "pbiviz start",
+    "lint": "tslint -r \"node_modules/tslint-microsoft-contrib\"  \"+(src|test)/**/*.ts\"",
+    "test": "pbiviz package --resources --no-minify --no-pbiviz"
+  },
+  "devDependencies": {
+    "@types/d3": "3.5.36",
+    "d3": "3.5.5",
+    "powerbi-visuals-tools": "^1.9.0",
+    "tslint": "^4.4.2",
+    "tslint-microsoft-contrib": "^4.0.0"
+  },
+  "dependencies": {
+    "d3": "^3.5.5",
+    "powerbi-visuals-utils-chartutils": "^1.5.1"
+  }
+}

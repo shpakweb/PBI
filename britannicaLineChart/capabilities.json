@@ -1,0 +1,124 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Ось",
+            "name": "category",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Условные обозначения",
+            "name": "subjects",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Значения",
+            "name": "measure",
+            "kind": "Measure"
+        }
+
+    ],
+    "dataViewMappings": [
+        
+        {
+            "conditions": [
+                {
+                    "axis": {
+                        "max": 1
+                    },
+                    "category": {
+                        "max": 1
+                    },
+                    "measure": {
+                        "max": 1
+                    }
+                }
+            ],
+            "categorical": {
+                "categories": {
+                    "for": {
+                        "in": "category"
+                    },
+                    "dataReductionAlgorithm": {
+                        "window": {
+                            "count": 1000
+                        }
+                    }   
+                },
+                "values": {
+                    "group": {
+                        "by": "subjects",
+                        "select":[
+                            { "for": { "in": "measure" } }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 100
+                            }
+                        }  
+                    }
+                }
+            }
+        }
+    ],
+    "objects": {
+        "enableXaxis": {
+            "displayName": "Enable X-axis",
+            "properties": {
+                "show": {
+                    "displayName": "Enable X-axis",
+                    "type": { "bool": true }
+                }
+            }
+        },
+        "enableYaxis": {
+            "displayName": "Enable Y-axis",
+            "properties": {
+                "show": {
+                    "displayName": "Enable Y-axis",
+                    "type": { "bool": true }
+                }
+            }
+        },
+        "colorSelector": {
+            "displayName": "Data Colors",
+            "properties": {
+                "fill": {
+                    "displayName": "Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "enableLegends": {
+            "displayName": "Enable Legends",
+            "properties": {
+                "show": {
+                    "displayName": "Enable Legends",
+                    "type": { "bool": true }
+                }
+            }
+        },
+        "generalView": {
+            "displayName": "General View",
+            "properties": {
+                "opacity": {
+                    "displayName": "Bars Opacity",
+                    "type": {
+                        "integer": true
+                    }
+                },
+                "showHelpLink": {
+                    "displayName": "Show Help Button",
+                    "type": { 
+                        "bool": true 
+                    }
+                }
+            }
+        }
+    }
+}
